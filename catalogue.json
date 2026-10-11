@@ -1,0 +1,2863 @@
+{
+  "version": 1,
+  "title": "Silo application catalogue",
+  "apps": [
+    {
+      "id": "firefox",
+      "name": "Firefox",
+      "description": "Independent browser with a persistent private profile.",
+      "category": "Browsers",
+      "license": "MPL-2.0",
+      "homepage": "https://www.mozilla.org/firefox/",
+      "icon": "web-browser",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "firefox",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#firefox",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "browser",
+          "audio"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Firefox",
+          "icon": "web-browser",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Firefox",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "ungoogled-chromium",
+      "name": "Ungoogled Chromium",
+      "description": "Chromium browser with Google service integration removed.",
+      "category": "Browsers",
+      "license": "BSD-3-Clause",
+      "homepage": "https://github.com/ungoogled-software/ungoogled-chromium",
+      "icon": "web-browser",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "ungoogled-chromium",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#ungoogled-chromium",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "browser",
+          "audio"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Ungoogled Chromium",
+          "icon": "web-browser",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Chromium",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "falkon",
+      "name": "Falkon",
+      "description": "Lightweight Qt WebEngine browser.",
+      "category": "Browsers",
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://www.falkon.org/",
+      "icon": "web-browser",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "falkon",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#kdePackages.falkon",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "browser",
+          "audio"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Falkon",
+          "icon": "web-browser",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Falkon",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "qbittorrent",
+      "name": "qBittorrent",
+      "description": "Qt torrent client; use a VPN with a controller-managed incoming port.",
+      "category": "Downloads",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://www.qbittorrent.org/",
+      "icon": "folder-download",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "qbittorrent",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#qbittorrent",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "qBittorrent",
+          "icon": "folder-download",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "qBittorrent",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "transmission-qt",
+      "name": "Transmission Qt",
+      "description": "Compact Qt torrent client with a private configuration.",
+      "category": "Downloads",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://transmissionbt.com/",
+      "icon": "folder-download",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "transmission-qt",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#transmission_4-qt",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Transmission Qt",
+          "icon": "folder-download",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Transmission",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "transmission-cli",
+      "name": "Transmission CLI",
+      "description": "Command-line torrent tools for scripted transfers.",
+      "category": "Downloads",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://transmissionbt.com/",
+      "icon": "folder-download",
+      "tags": [
+        "cli",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "transmission-cli",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#transmission_4",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Transmission CLI",
+          "icon": "folder-download",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "transmission",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "aria2",
+      "name": "aria2",
+      "description": "Command-line HTTP, FTP and torrent downloads.",
+      "category": "Downloads",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://aria2.github.io/",
+      "icon": "folder-download",
+      "tags": [
+        "cli",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "aria2",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#aria2",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "aria2",
+          "icon": "folder-download",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "aria2",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "rtorrent",
+      "name": "rTorrent",
+      "description": "Terminal torrent client with persistent session data.",
+      "category": "Downloads",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://github.com/rakshasa/rtorrent",
+      "icon": "folder-download",
+      "tags": [
+        "cli",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "rtorrent",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#rtorrent",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "rTorrent",
+          "icon": "folder-download",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Network"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "-h"
+        ],
+        "expected": "rTorrent",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "vlc",
+      "name": "VLC",
+      "description": "Qt media player for local files and network streams.",
+      "category": "Media",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://www.videolan.org/vlc/",
+      "icon": "multimedia-player",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "vlc",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#vlc",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "audio",
+          "media-controls"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "VLC",
+          "icon": "multimedia-player",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "AudioVideo"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "VLC",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "mpv",
+      "name": "mpv",
+      "description": "Keyboard-driven video player with a minimal interface.",
+      "category": "Media",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://mpv.io/",
+      "icon": "multimedia-player",
+      "tags": [
+        "gui",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "mpv",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#mpv",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "audio",
+          "media-controls"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "mpv",
+          "icon": "multimedia-player",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "AudioVideo"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "mpv",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "audacious",
+      "name": "Audacious",
+      "description": "Qt music player with playlists and desktop media controls.",
+      "category": "Media",
+      "license": "BSD-2-Clause",
+      "homepage": "https://audacious-media-player.org/",
+      "icon": "multimedia-player",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "audacious",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#audacious",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme",
+          "audio",
+          "media-controls"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Audacious",
+          "icon": "multimedia-player",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "AudioVideo"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Audacious",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "ffmpeg",
+      "name": "FFmpeg",
+      "description": "Command-line audio and video conversion tools.",
+      "category": "Media",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://ffmpeg.org/",
+      "icon": "multimedia-player",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "ffmpeg",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#ffmpeg",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "FFmpeg",
+          "icon": "multimedia-player",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "AudioVideo"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "-version"
+        ],
+        "expected": "ffmpeg version",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "yt-dlp",
+      "name": "yt-dlp",
+      "description": "Command-line media downloader; review each service\u2019s terms.",
+      "category": "Media",
+      "license": "Unlicense",
+      "homepage": "https://github.com/yt-dlp/yt-dlp",
+      "icon": "multimedia-player",
+      "tags": [
+        "cli",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "yt-dlp",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#yt-dlp",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "yt-dlp",
+          "icon": "multimedia-player",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "AudioVideo"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "libreoffice",
+      "name": "LibreOffice",
+      "description": "Office suite with Qt desktop integration.",
+      "category": "Documents",
+      "license": "MPL-2.0",
+      "homepage": "https://www.libreoffice.org/",
+      "icon": "x-office-document",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "libreoffice",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#libreoffice-qt",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 4294967296,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "LibreOffice",
+          "icon": "x-office-document",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Office"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "4096"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "LibreOffice",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "okular",
+      "name": "Okular",
+      "description": "Qt document reader for PDF and other formats.",
+      "category": "Documents",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://okular.kde.org/",
+      "icon": "x-office-document",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "okular",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#kdePackages.okular",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Okular",
+          "icon": "x-office-document",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Office"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Okular",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "featherpad",
+      "name": "FeatherPad",
+      "description": "Lightweight Qt plain-text editor.",
+      "category": "Documents",
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://github.com/tsujan/FeatherPad",
+      "icon": "x-office-document",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "featherpad",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#featherpad",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "FeatherPad",
+          "icon": "x-office-document",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Office"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "FeatherPad",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "qalculate",
+      "name": "Qalculate",
+      "description": "Qt scientific calculator with unit conversion.",
+      "category": "Utilities",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://qalculate.github.io/",
+      "icon": "applications-utilities",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "qalculate",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#qalculate-qt",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Qalculate",
+          "icon": "applications-utilities",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Utility"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Qalculate",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "gimp",
+      "name": "GIMP",
+      "description": "Raster image editing in an isolated workspace.",
+      "category": "Graphics",
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://www.gimp.org/",
+      "icon": "applications-graphics",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "gimp",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#gimp",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 4294967296,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "GIMP",
+          "icon": "applications-graphics",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Graphics"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "4096"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "GIMP",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "krita",
+      "name": "Krita",
+      "description": "Qt digital painting and illustration studio.",
+      "category": "Graphics",
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://krita.org/",
+      "icon": "applications-graphics",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "krita",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#krita",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 4294967296,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Krita",
+          "icon": "applications-graphics",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Graphics"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "4096"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Krita",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "inkscape",
+      "name": "Inkscape",
+      "description": "Vector illustration and SVG editing.",
+      "category": "Graphics",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://inkscape.org/",
+      "icon": "applications-graphics",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "inkscape",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#inkscape",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Inkscape",
+          "icon": "applications-graphics",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Graphics"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Inkscape",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "imagemagick",
+      "name": "ImageMagick",
+      "description": "Command-line image processing and conversion.",
+      "category": "Graphics",
+      "license": "ImageMagick",
+      "homepage": "https://imagemagick.org/",
+      "icon": "applications-graphics",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "imagemagick",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#imagemagick",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "ImageMagick",
+          "icon": "applications-graphics",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Graphics"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "-version"
+        ],
+        "expected": "ImageMagick",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "kate",
+      "name": "Kate",
+      "description": "Qt source editor with syntax highlighting and project views.",
+      "category": "Development",
+      "license": "LGPL-2.0-or-later",
+      "homepage": "https://kate-editor.org/",
+      "icon": "applications-development",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "kate",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#kdePackages.kate",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Kate",
+          "icon": "applications-development",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Kate",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "neovim",
+      "name": "Neovim",
+      "description": "Extensible terminal editor with a private configuration.",
+      "category": "Development",
+      "license": "Apache-2.0",
+      "homepage": "https://neovim.io/",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "neovim",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#neovim",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Neovim",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "NVIM",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "helix",
+      "name": "Helix",
+      "description": "Modal terminal editor with built-in language tooling.",
+      "category": "Development",
+      "license": "MPL-2.0",
+      "homepage": "https://helix-editor.com/",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "helix",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#helix",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Helix",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "helix",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "description": "Version control tools for explicitly attached workspaces.",
+      "category": "Development",
+      "license": "GPL-2.0-only",
+      "homepage": "https://git-scm.com/",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "vpn-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "git",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#git",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "vpn",
+          "required": true
+        },
+        "desktop": {
+          "name": "Git",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "vpn"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "git version",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "jq",
+      "name": "jq",
+      "description": "Command-line JSON querying and transformation.",
+      "category": "Development",
+      "license": "MIT",
+      "homepage": "https://jqlang.org/",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "jq",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#jq",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "jq",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "jq-",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "ripgrep",
+      "name": "ripgrep",
+      "description": "Fast recursive text search over explicitly attached files.",
+      "category": "Development",
+      "license": "MIT",
+      "homepage": "https://github.com/BurntSushi/ripgrep",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "ripgrep",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#ripgrep",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "ripgrep",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "ripgrep",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "filelight",
+      "name": "Filelight",
+      "description": "Qt disk-usage visualization for explicitly attached volumes.",
+      "category": "Utilities",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://apps.kde.org/filelight/",
+      "icon": "applications-utilities",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "filelight",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#kdePackages.filelight",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "Filelight",
+          "icon": "applications-utilities",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Utility"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "Filelight",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "keepassxc",
+      "name": "KeePassXC",
+      "description": "Offline Qt password database manager.",
+      "category": "Utilities",
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://keepassxc.org/",
+      "icon": "applications-utilities",
+      "tags": [
+        "gui",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "keepassxc",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#keepassxc",
+          "args": []
+        },
+        "presets": [
+          "wayland",
+          "qt-theme"
+        ],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "KeePassXC",
+          "icon": "applications-utilities",
+          "terminal": false,
+          "approved": false,
+          "categories": [
+            "Utility"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "window",
+        "args": [],
+        "expected": "KeePassXC",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite",
+      "description": "Command-line relational database tools.",
+      "category": "Development",
+      "license": "Public-Domain",
+      "homepage": "https://sqlite.org/",
+      "icon": "applications-development",
+      "tags": [
+        "cli",
+        "offline-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "sqlite",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#sqlite",
+          "args": []
+        },
+        "presets": [],
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 536870912,
+          "processes": 512,
+          "cpu_percent": 200
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "desktop": {
+          "name": "SQLite",
+          "icon": "applications-development",
+          "terminal": true,
+          "approved": false,
+          "categories": [
+            "Development"
+          ]
+        }
+      },
+      "options": [
+        {
+          "key": "network",
+          "label": "Network access",
+          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "choices": [
+            "vpn",
+            "blocked",
+            "direct"
+          ],
+          "default": "blocked"
+        },
+        {
+          "key": "memory-mib",
+          "label": "Memory limit",
+          "description": "Maximum memory including private temporary files, in MiB.",
+          "choices": [
+            "1024",
+            "2048",
+            "4096",
+            "8192"
+          ],
+          "default": "2048"
+        },
+        {
+          "key": "storage-mib",
+          "label": "Private storage limit",
+          "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
+          "choices": [
+            "1024",
+            "4096",
+            "16384"
+          ],
+          "default": "4096"
+        }
+      ],
+      "files": {},
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "",
+        "timeout_seconds": 60
+      }
+    }
+  ]
+}
