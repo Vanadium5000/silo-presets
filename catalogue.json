@@ -70,7 +70,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -82,7 +82,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -173,7 +173,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -185,7 +185,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -276,7 +276,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -288,7 +288,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -381,7 +381,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -393,7 +393,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -478,7 +478,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -490,7 +490,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -575,7 +575,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -587,7 +587,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -669,7 +669,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -681,7 +681,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -763,7 +763,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -775,7 +775,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -863,7 +863,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -875,7 +875,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -966,7 +966,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -978,7 +978,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1066,7 +1066,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1078,7 +1078,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1158,7 +1158,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1170,7 +1170,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1261,7 +1261,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1273,7 +1273,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1358,7 +1358,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1370,7 +1370,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1460,7 +1460,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1472,7 +1472,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1560,7 +1560,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1572,7 +1572,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1655,7 +1655,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1667,7 +1667,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1755,7 +1755,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1767,7 +1767,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1856,7 +1856,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1868,7 +1868,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -1953,7 +1953,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -1965,7 +1965,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2056,7 +2056,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2068,7 +2068,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2153,7 +2153,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2165,7 +2165,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2251,7 +2251,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2263,7 +2263,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2346,7 +2346,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2358,7 +2358,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2443,7 +2443,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2455,7 +2455,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2538,7 +2538,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2550,7 +2550,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2639,7 +2639,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2651,7 +2651,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2734,7 +2734,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2746,7 +2746,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
@@ -2826,7 +2826,7 @@
         },
         {
           "key": "memory-mib",
-          "label": "Memory limit",
+          "label": "Memory limit (MiB)",
           "description": "Maximum memory including private temporary files, in MiB.",
           "choices": [
             "1024",
@@ -2838,7 +2838,7 @@
         },
         {
           "key": "storage-mib",
-          "label": "Private storage limit",
+          "label": "Private storage limit (MiB)",
           "description": "Private persistent application data in MiB; shared data requires explicit volume attachments.",
           "choices": [
             "1024",
