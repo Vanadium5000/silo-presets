@@ -1,0 +1,246 @@
+{
+  "cache": "https://cache.nixos.org",
+  "checked_at": "2026-10-11",
+  "method": "read-only recursive Nix binary-cache metadata query",
+  "apps": [
+    {
+      "id": "firefox",
+      "cached": true,
+      "outputs": [
+        "/nix/store/maqdyjdilc0x6brjb086mih80m1ikx6m-firefox-151.0.2"
+      ],
+      "closure_paths": 369
+    },
+    {
+      "id": "ungoogled-chromium",
+      "cached": true,
+      "outputs": [
+        "/nix/store/2lp4b51hq88m0h8m11gh4yb3y4lshy00-ungoogled-chromium-148.0.7778.178"
+      ],
+      "closure_paths": 353
+    },
+    {
+      "id": "falkon",
+      "cached": true,
+      "outputs": [
+        "/nix/store/68c9bkk1h8z26z9hx23h75c2dn7lj671-falkon-26.04.1"
+      ],
+      "closure_paths": 445
+    },
+    {
+      "id": "qbittorrent",
+      "cached": true,
+      "outputs": [
+        "/nix/store/i8r2n73xzlxk7sfchjlkdxajs8jbqbv0-qbittorrent-5.2.1"
+      ],
+      "closure_paths": 182
+    },
+    {
+      "id": "transmission-qt",
+      "cached": true,
+      "outputs": [
+        "/nix/store/69qk4mbx2xdrsmidhqxqsfannkzrj168-transmission-4.1.1"
+      ],
+      "closure_paths": 133
+    },
+    {
+      "id": "transmission-cli",
+      "cached": true,
+      "outputs": [
+        "/nix/store/2hyrjr2if9j6m9viav6nxx6vbjvwxihk-transmission-4.1.1"
+      ],
+      "closure_paths": 76
+    },
+    {
+      "id": "aria2",
+      "cached": true,
+      "outputs": [
+        "/nix/store/x97ya592h9gqwwkgbip70qj6n1hgv513-aria2-1.37.0-bin",
+        "/nix/store/qxb43r8lxdifsr0p74n0yp35f6k7l1hv-aria2-1.37.0-man"
+      ],
+      "closure_paths": 24
+    },
+    {
+      "id": "rtorrent",
+      "cached": true,
+      "outputs": [
+        "/nix/store/lsnsh29vp7bndmj0mgwc0yyc8bjipaqj-rtorrent-0.16.11",
+        "/nix/store/xdvw0sh6glvlzb4crpcnm328g2rf7img-rtorrent-0.16.11-man"
+      ],
+      "closure_paths": 23
+    },
+    {
+      "id": "vlc",
+      "cached": true,
+      "outputs": [
+        "/nix/store/ww5n6am26ifvfvv670g9c7bm0r97m15p-vlc-3.0.23-2"
+      ],
+      "closure_paths": 366
+    },
+    {
+      "id": "mpv",
+      "cached": true,
+      "outputs": [
+        "/nix/store/mh0x9w15382h2mv4ckhd9gsv781vj07f-mpv-with-scripts-0.41.0"
+      ],
+      "closure_paths": 288
+    },
+    {
+      "id": "audacious",
+      "cached": true,
+      "outputs": [
+        "/nix/store/ag4a7736kxw5jb4s5rzc0p9x3h71bzgb-audacious-4.5.1"
+      ],
+      "closure_paths": 346
+    },
+    {
+      "id": "ffmpeg",
+      "cached": true,
+      "outputs": [
+        "/nix/store/281zx8sanx5fcp8j6advwics7gwdvdaz-ffmpeg-8.1-bin",
+        "/nix/store/dnnz7b0444c6pb6q8rippk90sl0pnz1n-ffmpeg-8.1-man"
+      ],
+      "closure_paths": 308
+    },
+    {
+      "id": "yt-dlp",
+      "cached": true,
+      "outputs": [
+        "/nix/store/wbdak46q8mmkca708mqj2nqc7y1c95cl-yt-dlp-2026.03.17"
+      ],
+      "closure_paths": 145
+    },
+    {
+      "id": "okular",
+      "cached": true,
+      "outputs": [
+        "/nix/store/z4pzrabvz4wknk1kmwpihml5nxyzxqk1-okular-26.04.1"
+      ],
+      "closure_paths": 428
+    },
+    {
+      "id": "featherpad",
+      "cached": true,
+      "outputs": [
+        "/nix/store/qyqxp72p6wkg0vk999czmz46qfj62vyw-featherpad-1.6.3"
+      ],
+      "closure_paths": 173
+    },
+    {
+      "id": "qalculate",
+      "cached": true,
+      "outputs": [
+        "/nix/store/xd8sm5ha3ah79yvbgfibhzz5i10q3gpj-qalculate-qt-5.11.0"
+      ],
+      "closure_paths": 191
+    },
+    {
+      "id": "gimp",
+      "cached": true,
+      "outputs": [
+        "/nix/store/gjvnk0ya875z1jkzgziik2qsf0kkfpc9-gimp-3.0.8",
+        "/nix/store/yfg4s458syx1aq1z00mng4xh1k96ami8-gimp-3.0.8-man"
+      ],
+      "closure_paths": 223
+    },
+    {
+      "id": "krita",
+      "cached": true,
+      "outputs": [
+        "/nix/store/r18na4iyxnd9c071vyvkm7y0aizcrqxc-krita-6.0.1"
+      ],
+      "closure_paths": 461
+    },
+    {
+      "id": "inkscape",
+      "cached": true,
+      "outputs": [
+        "/nix/store/h6isv0kpv3j53y8fh6cymvx10q4pygvs-inkscape-1.4.4",
+        "/nix/store/pnd0mkmskyk6zhl3bbs2d8mpxpi4dy7b-inkscape-1.4.4-man"
+      ],
+      "closure_paths": 248
+    },
+    {
+      "id": "imagemagick",
+      "cached": true,
+      "outputs": [
+        "/nix/store/vwalk1kcnb5mr5c5c8100a96r9kgq4g2-imagemagick-7.1.2-23"
+      ],
+      "closure_paths": 91
+    },
+    {
+      "id": "kate",
+      "cached": true,
+      "outputs": [
+        "/nix/store/ab5c2f5mlx3cxjr5sfr30f9r3iv02zv0-kate-26.04.1"
+      ],
+      "closure_paths": 410
+    },
+    {
+      "id": "neovim",
+      "cached": true,
+      "outputs": [
+        "/nix/store/7idwf19b7b53wn7rznqgccymyif7kmwh-neovim-0.12.2"
+      ],
+      "closure_paths": 110
+    },
+    {
+      "id": "helix",
+      "cached": true,
+      "outputs": [
+        "/nix/store/8pnw2sfmnprcxkx06l3xj3nmmddgdndd-helix-25.07.1"
+      ],
+      "closure_paths": 11
+    },
+    {
+      "id": "git",
+      "cached": true,
+      "outputs": [
+        "/nix/store/bcnisk3ydfgv26v2gw3zlky24g00yww2-git-2.54.0"
+      ],
+      "closure_paths": 84
+    },
+    {
+      "id": "jq",
+      "cached": true,
+      "outputs": [
+        "/nix/store/s04d6wm3kqjdgr7zdhlk214f6a2291ks-jq-1.8.1-bin",
+        "/nix/store/ncw52xsl5hgplh8csybbp9fli64iw1aq-jq-1.8.1-man"
+      ],
+      "closure_paths": 8
+    },
+    {
+      "id": "ripgrep",
+      "cached": true,
+      "outputs": [
+        "/nix/store/ixsp81bia5w1fqd2d59vwbcfqk3n5231-ripgrep-15.1.0"
+      ],
+      "closure_paths": 8
+    },
+    {
+      "id": "filelight",
+      "cached": true,
+      "outputs": [
+        "/nix/store/sn73q4pd10qrjcf8kqykmp4zbf2l3l4a-filelight-26.04.1"
+      ],
+      "closure_paths": 402
+    },
+    {
+      "id": "keepassxc",
+      "cached": true,
+      "outputs": [
+        "/nix/store/m1vzm2hqa21srvr99l601gcgvnxgrwyr-keepassxc-2.7.12"
+      ],
+      "closure_paths": 142
+    },
+    {
+      "id": "sqlite",
+      "cached": true,
+      "outputs": [
+        "/nix/store/jl35p88sb0jjm11sr2p9v37q6hm3c6pm-sqlite-3.51.2-bin",
+        "/nix/store/i4jxf27jfv2hrj68m2b3qy5b9q27p9xj-sqlite-3.51.2-man"
+      ],
+      "closure_paths": 7
+    }
+  ]
+}

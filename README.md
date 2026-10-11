@@ -19,3 +19,14 @@ The command-line equivalents are `silo source add`, `silo source refresh`, `silo
 Custom hooks live in the jail definition and execute inside the jail. They are executable code and must be reviewed, including on updates. Never put credentials in this catalogue. Grant only the resources an application needs, and test all changed entries in disposable guests.
 
 The initial test descriptors include readiness checks. They must be augmented with representative fixture-based operations for release acceptance; `--version` alone is insufficient.
+
+## Binary-cache requirement
+
+Every listed package, including its complete installable dependency closure, must
+be available from `https://cache.nixos.org`. Run `python3 check-cache.py` before
+publishing catalogue changes. This queries cache metadata without building or
+realising anything and disables import-from-derivation during evaluation. A
+failure excludes the entry; do not compile it locally to make the check pass or
+use a different cache. Recheck when changing a package pin. Cache availability
+can change after publication, so clients should use substitution-only Nix settings
+when source compilation is not acceptable.
