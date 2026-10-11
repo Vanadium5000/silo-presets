@@ -30,3 +30,12 @@ failure excludes the entry; do not compile it locally to make the check pass or
 use a different cache. Recheck when changing a package pin. Cache availability
 can change after publication, so clients should use substitution-only Nix settings
 when source compilation is not acceptable.
+
+## Runtime verification
+
+`runtime-verification.json` records startup checks for all 29 entries in a
+disposable guest. GUI captures were inspected, including document/image fixtures
+and the torrent client main window. These checks use a local VPN fixture; they
+do not certify live-provider transfers or physical-GPU behavior. Kate stays in
+the foreground for supervision. The incoming-port wrappers for qBittorrent and
+Transmission CLI consume the exclusive port supplied by Silo.

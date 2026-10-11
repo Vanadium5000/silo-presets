@@ -1,0 +1,181 @@
+{
+  "date": "2026-10-11",
+  "environment": "Disposable NixOS Wayland guest, two virtual CPUs",
+  "scope": "Realised cached executables inside configured Silo jails; GUI startup and test documents or CLI output. VPN routing used a local fixture. Does not establish live-provider transfer or physical-GPU correctness.",
+  "applications": [
+    {
+      "error": null,
+      "id": "firefox",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "ungoogled-chromium",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "falkon",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "qbittorrent",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "transmission-qt",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "transmission-cli",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "aria2",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "rtorrent",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "vlc",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "mpv",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "audacious",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "ffmpeg",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "yt-dlp",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "okular",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "featherpad",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "qalculate",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "gimp",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "krita",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "inkscape",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "imagemagick",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "kate",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "neovim",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "helix",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "git",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "jq",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "ripgrep",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "filelight",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "keepassxc",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    },
+    {
+      "error": null,
+      "id": "sqlite",
+      "passed": true,
+      "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+    }
+  ]
+}
