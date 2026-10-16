@@ -1216,7 +1216,7 @@
     {
       "id": "yt-dlp",
       "name": "yt-dlp",
-      "description": "Command-line media downloader; review each service’s terms.",
+      "description": "Command-line media downloader; review each service\u2019s terms.",
       "category": "Media",
       "license": "Unlicense",
       "homepage": "https://github.com/yt-dlp/yt-dlp",
@@ -2871,6 +2871,431 @@
           "create table fixture(value); insert into fixture values (42); select value from fixture;"
         ],
         "expected": "42",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "vaultwarden",
+      "name": "Vaultwarden",
+      "description": "Vaultwarden hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "AGPL-3.0-only",
+      "homepage": "https://github.com/dani-garcia/vaultwarden",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "vaultwarden",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#vaultwarden",
+          "args": []
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 536870912,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "environment": {
+          "DATA_FOLDER": "/state/home/data",
+          "ROCKET_ADDRESS": "::",
+          "ROCKET_PORT": "8080",
+          "SIGNUPS_ALLOWED": "false",
+          "WEB_VAULT_ENABLED": "false"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "Vaultwarden",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "jellyfin",
+      "name": "Jellyfin",
+      "description": "Jellyfin hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "GPL-2.0-only",
+      "homepage": "https://jellyfin.org/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "jellyfin",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#jellyfin",
+          "args": [
+            "--datadir",
+            "/state/home/data",
+            "--configdir",
+            "/state/home/config",
+            "--cachedir",
+            "/state/home/cache",
+            "--logdir",
+            "/state/home/log"
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 2147483648,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--help"
+        ],
+        "expected": "Jellyfin.Server",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "traefik",
+      "name": "Traefik",
+      "description": "Traefik hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "MIT",
+      "homepage": "https://traefik.io/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "traefik",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#traefik",
+          "args": [
+            "--configFile=/app/traefik.toml"
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "direct"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 536870912,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "traefik.toml": "[entryPoints.web]\naddress = \":8080\"\n[entryPoints.websecure]\naddress = \":8443\"\n[providers.file]\nfilename = \"/app/routes.toml\"\n[ping]\nentryPoint = \"web\"\n",
+          "routes.toml": "# Add reviewed routers and explicitly granted backend service links.\n"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "version"
+        ],
+        "expected": "Version:",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "nginx",
+      "name": "nginx",
+      "description": "nginx hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "BSD-2-Clause",
+      "homepage": "https://nginx.org/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "nginx",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#nginx",
+          "args": [
+            "-e",
+            "stderr",
+            "-c",
+            "/app/nginx.conf",
+            "-p",
+            "/state/home/",
+            "-g",
+            "daemon off;"
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 536870912,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "nginx.conf": "pid /state/home/nginx.pid;\nerror_log stderr;\nevents { worker_connections 512; }\nhttp {\n access_log /dev/stdout;\n client_body_temp_path /state/home/client-temp;\n proxy_temp_path /state/home/proxy-temp;\n fastcgi_temp_path /state/home/fastcgi-temp;\n uwsgi_temp_path /state/home/uwsgi-temp;\n scgi_temp_path /state/home/scgi-temp;\n server { listen 8080; listen [::]:8080; location /health { return 200 \"healthy\\n\"; } }\n}\n"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "-v"
+        ],
+        "expected": "nginx/",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "postgresql",
+      "name": "PostgreSQL",
+      "description": "PostgreSQL hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "PostgreSQL",
+      "homepage": "https://www.postgresql.org/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "postgresql",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#postgresql_17",
+          "args": []
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 536870912,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "pg_hba.conf": "local all all trust\nhost all all 0.0.0.0/0 scram-sha-256\nhost all all ::/0 scram-sha-256\n"
+        },
+        "hooks": {
+          "wrapper": "if [ \"${2-}\" = \"--version\" ]; then exec \"$1\" --version; fi\nbin=\"${1%/*}\"\nif [ ! -f /state/home/data/PG_VERSION ]; then\n  \"$bin/initdb\" -D /state/home/data --auth-host=scram-sha-256 --auth-local=trust --username=silo --pwfile=/run/credentials/password || exit $?\nfi\nexec \"$bin/postgres\" -D /state/home/data -h \"*\" -k /tmp -c hba_file=/app/pg_hba.conf",
+          "timeout_seconds": 60,
+          "before_start": []
+        },
+        "credentials": {
+          "password": "postgresql-password"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "PostgreSQL",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "prometheus",
+      "name": "Prometheus",
+      "description": "Prometheus hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "Apache-2.0",
+      "homepage": "https://prometheus.io/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "prometheus",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#prometheus",
+          "args": [
+            "--config.file=/app/prometheus.yml",
+            "--storage.tsdb.path=/state/home/data",
+            "--storage.tsdb.retention.time=15d",
+            "--web.listen-address=:9090"
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 1073741824,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "prometheus.yml": "global:\n  scrape_interval: 30s\nscrape_configs:\n  - job_name: prometheus\n    static_configs:\n      - targets: [\"localhost:9090\"]\n"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "prometheus, version",
+        "timeout_seconds": 60
+      }
+    },
+    {
+      "id": "alertmanager",
+      "name": "Alertmanager",
+      "description": "Alertmanager hosting service. Private by default; review ingress, runtime credentials and backup policy before use.",
+      "category": "Hosting",
+      "license": "Apache-2.0",
+      "homepage": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "alertmanager",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#prometheus-alertmanager",
+          "args": [
+            "--config.file=/app/alertmanager.yml",
+            "--storage.path=/state/home/data",
+            "--web.listen-address=:9093",
+            "--cluster.listen-address="
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 4294967296,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 536870912,
+          "tmp": 134217728,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "alertmanager.yml": "route:\n  receiver: unconfigured\nreceivers:\n  - name: unconfigured\n"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "alertmanager, version",
         "timeout_seconds": 60
       }
     }
