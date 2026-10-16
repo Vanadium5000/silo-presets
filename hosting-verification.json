@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-16",
+  "environment": "Disposable NixOS VPS KVM guest; release Silo package; no physical host activation",
+  "capabilities": [
+    "hosting-v1",
+    "runtime-credentials-v1"
+  ],
+  "cache": {
+    "command": "python3 check-cache.py",
+    "result": "All 36 catalogue entries and their complete closures available from cache.nixos.org"
+  },
+  "checks": [
+    {
+      "id": "vaultwarden",
+      "output": "/nix/store/vjcgm876z1qdrgp5nzhw6csaapbmgd58-vaultwarden-1.36.0",
+      "postgresql_transaction": false,
+      "readiness": "\"2026-10-16T19:45:59.365484Z\"",
+      "restart": true
+    },
+    {
+      "id": "jellyfin",
+      "output": "/nix/store/m36nj17dz2gh1vfvkfi2bi6bvg8w6b9m-jellyfin-10.11.10",
+      "postgresql_transaction": false,
+      "readiness": "{\"localAddress\":\"http://127.0.0.1:8096\",\"serverName\":\"silo\",\"version\":\"10.11.10\",\"productName\":\"Jellyfin Server\",\"operatingSystem\":\"\",\"id\":\"7e37a62e4cd1445c9bf9a5278965cd86\",\"startupWizardCompleted\":false}",
+      "restart": true
+    },
+    {
+      "id": "traefik",
+      "output": "/nix/store/yspxc8rkn8wg6gvnlfk7gy42f3n0v123-traefik-3.7.1",
+      "postgresql_transaction": false,
+      "readiness": "OK",
+      "restart": true
+    },
+    {
+      "id": "nginx",
+      "output": "/nix/store/cf5mwsjkxjvm0pkk4p4vbn11wq2ii0kd-nginx-1.30.2",
+      "postgresql_transaction": false,
+      "readiness": "healthy\n",
+      "restart": true
+    },
+    {
+      "id": "postgresql",
+      "output": "/nix/store/8zm2sma9jgvq101yy4x45za4y28yd164-postgresql-17.10",
+      "postgresql_transaction": true,
+      "readiness": "42\n",
+      "restart": true
+    },
+    {
+      "id": "prometheus",
+      "output": "/nix/store/jzpjkzazwwklrrdbi0d5dsw9ijmmbwfn-prometheus-3.11.3",
+      "postgresql_transaction": false,
+      "readiness": "Prometheus Server is Ready.\n",
+      "restart": true
+    },
+    {
+      "id": "alertmanager",
+      "output": "/nix/store/djw6zwrhiwq8k7zmdi76xfndifr20vrl-alertmanager-0.31.1",
+      "postgresql_transaction": false,
+      "readiness": "OK",
+      "restart": true
+    }
+  ],
+  "silo_checks": {
+    "credential_readonly": true,
+    "failed_release_rollback": true,
+    "firewall_reload": true,
+    "ipv4_ingress": true,
+    "ipv6_ingress": true,
+    "persistent_stop": true,
+    "port_conflict_rejected": true,
+    "private_peer": true,
+    "staged_deployment": true,
+    "ungranted_egress_denied": true,
+    "unpublished_ingress_denied": true
+  },
+  "limitations": [
+    "Private startup/readiness/restart tests do not certify every application feature.",
+    "Live public ACME issuance/renewal, DNS-provider tokens and external notification delivery are not tested.",
+    "Jellyfin GPU transcoding and media playback are not covered.",
+    "Vaultwarden native-client encryption/account workflows are not covered.",
+    "Application-specific migration and full disaster-recovery drills remain operator responsibilities."
+  ]
+}

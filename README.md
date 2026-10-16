@@ -61,3 +61,10 @@ port in the application can break inbound connectivity until the next launch.
 Full transfer, incoming-peer and throughput measurements are recorded separately
 in [torrent-verification.json](torrent-verification.json), including resumed-check
 distinctions and network comparison limits.
+
+## Hosting services
+
+The seven private hosting presets and their required Silo capabilities are
+explained in [HOSTING.md](HOSTING.md), including HTTPS routing, credential
+provisioning, monitoring and backup setup. Review this guide before publishing
+ports. Hosting verification is separate from the original desktop catalogue.
