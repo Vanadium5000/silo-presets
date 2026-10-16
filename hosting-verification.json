@@ -15,42 +15,42 @@
       "id": "vaultwarden",
       "output": "/nix/store/vjcgm876z1qdrgp5nzhw6csaapbmgd58-vaultwarden-1.36.0",
       "postgresql_transaction": false,
-      "readiness": "\"2026-10-16T20:03:27.951550Z\"",
+      "readiness": "\"2026-10-16T20:14:34.456698Z\"",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 179339000,
+        "CPUUsageNSec": 134391000,
         "ControlGroup": "/silo.slice/silo-catalogue-vaultwarden.service",
-        "MainPID": 2391,
-        "MemoryCurrent": 36098048,
+        "MainPID": 2513,
+        "MemoryCurrent": 35950592,
         "MemoryMax": 536870912,
-        "MemoryPeak": 38076416,
+        "MemoryPeak": 37978112,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 17
       },
       "restart": true,
-      "startup_ms": 1307
+      "startup_ms": 1306
     },
     {
       "functional_check": "public server identity",
       "id": "jellyfin",
       "output": "/nix/store/m36nj17dz2gh1vfvkfi2bi6bvg8w6b9m-jellyfin-10.11.10",
       "postgresql_transaction": false,
-      "readiness": "{\"localAddress\":\"http://127.0.0.1:8096\",\"serverName\":\"silo\",\"version\":\"10.11.10\",\"productName\":\"Jellyfin Server\",\"operatingSystem\":\"\",\"id\":\"4a317322955d4408bd93b5923a612b01\",\"startupWizardCompleted\":false}",
+      "readiness": "{\"localAddress\":\"http://127.0.0.1:8096\",\"serverName\":\"silo\",\"version\":\"10.11.10\",\"productName\":\"Jellyfin Server\",\"operatingSystem\":\"\",\"id\":\"9faa2a59f213429b9791b662d84ba185\",\"startupWizardCompleted\":false}",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 2532597000,
+        "CPUUsageNSec": 2009555000,
         "ControlGroup": "/silo.slice/silo-catalogue-jellyfin.service",
-        "MainPID": 2537,
-        "MemoryCurrent": 173232128,
-        "MemoryMax": 1032988672,
-        "MemoryPeak": 173232128,
+        "MainPID": 2659,
+        "MemoryCurrent": 172974080,
+        "MemoryMax": 1032990720,
+        "MemoryPeak": 172974080,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 28
       },
       "restart": true,
-      "startup_ms": 2912
+      "startup_ms": 2309
     },
     {
       "functional_check": "health endpoint",
@@ -60,18 +60,18 @@
       "readiness": "OK",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 274813000,
+        "CPUUsageNSec": 189309000,
         "ControlGroup": "/silo.slice/silo-catalogue-traefik.service",
-        "MainPID": 2708,
-        "MemoryCurrent": 102301696,
+        "MainPID": 2829,
+        "MemoryCurrent": 101183488,
         "MemoryMax": 536870912,
-        "MemoryPeak": 104284160,
+        "MemoryPeak": 103448576,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 13
       },
       "restart": true,
-      "startup_ms": 1308
+      "startup_ms": 1307
     },
     {
       "functional_check": "health endpoint",
@@ -81,12 +81,12 @@
       "readiness": "healthy\n",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 41392000,
+        "CPUUsageNSec": 37209000,
         "ControlGroup": "/silo.slice/silo-catalogue-nginx.service",
-        "MainPID": 2884,
-        "MemoryCurrent": 12922880,
+        "MainPID": 3005,
+        "MemoryCurrent": 12926976,
         "MemoryMax": 536870912,
-        "MemoryPeak": 14901248,
+        "MemoryPeak": 15204352,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 8
@@ -102,18 +102,18 @@
       "readiness": "42\n",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 1032007000,
+        "CPUUsageNSec": 730896000,
         "ControlGroup": "/silo.slice/silo-catalogue-postgresql.service",
-        "MainPID": 2984,
-        "MemoryCurrent": 88756224,
+        "MainPID": 3105,
+        "MemoryCurrent": 88616960,
         "MemoryMax": 536870912,
-        "MemoryPeak": 104685568,
+        "MemoryPeak": 104771584,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 12
       },
       "restart": true,
-      "startup_ms": 10442
+      "startup_ms": 2713
     },
     {
       "functional_check": "query vector(42)",
@@ -123,18 +123,18 @@
       "readiness": "Prometheus Server is Ready.\n",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 342679000,
+        "CPUUsageNSec": 237294000,
         "ControlGroup": "/silo.slice/silo-catalogue-prometheus.service",
-        "MainPID": 3328,
-        "MemoryCurrent": 105553920,
-        "MemoryMax": 1032988672,
-        "MemoryPeak": 109740032,
+        "MainPID": 3292,
+        "MemoryCurrent": 107073536,
+        "MemoryMax": 1032990720,
+        "MemoryPeak": 109060096,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 13
       },
       "restart": true,
-      "startup_ms": 1309
+      "startup_ms": 1306
     },
     {
       "functional_check": "inject and retrieve alert",
@@ -144,22 +144,25 @@
       "readiness": "OK",
       "resources": {
         "ActiveState": "active",
-        "CPUUsageNSec": 107404000,
+        "CPUUsageNSec": 98470000,
         "ControlGroup": "/silo.slice/silo-catalogue-alertmanager.service",
-        "MainPID": 3463,
-        "MemoryCurrent": 39972864,
+        "MainPID": 3426,
+        "MemoryCurrent": 41025536,
         "MemoryMax": 536870912,
-        "MemoryPeak": 41951232,
+        "MemoryPeak": 42737664,
         "Result": "success",
         "SubState": "running",
         "TasksCurrent": 13
       },
       "restart": true,
-      "startup_ms": 603
+      "startup_ms": 605
     }
   ],
   "silo_checks": {
+    "credential_hardlink_rejected": true,
+    "credential_permissions_rejected": true,
     "credential_readonly": true,
+    "credential_symlink_rejected": true,
     "failed_release_rollback": true,
     "failed_stage_root_cleanup": true,
     "firewall_reload": true,

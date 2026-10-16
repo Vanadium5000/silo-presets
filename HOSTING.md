@@ -29,8 +29,10 @@ approves compatibility with the application's persistent data format.
 After importing Vaultwarden and Traefik, stop both while editing their reviewed
 jail definitions. Add a Traefik `hosting.connect` grant for service `vaultwarden`,
 TCP 8080. Publish host TCP 443 to Traefik 8443 on each required address family.
-For an HTTP challenge, also publish TCP 80 to Traefik 8080. Keep ping and
-administration endpoints private with appropriate router rules.
+For an HTTP challenge, also publish TCP 80 to Traefik 8080. The initial ping endpoint shares port 8080. To keep it private when publishing
+HTTP 80, add an unpublished `health` entry point (for example `:8082`) and change
+the existing `[ping]` section to `entryPoint = "health"`. Do not expose an
+administration dashboard.
 
 Add a certificate resolver to `traefik.toml` (replace the example address):
 
