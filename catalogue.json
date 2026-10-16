@@ -314,7 +314,7 @@
     {
       "id": "qbittorrent",
       "name": "qBittorrent",
-      "description": "Qt torrent client with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
+      "description": "qBittorrent with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
       "category": "Downloads",
       "license": "GPL-2.0-or-later",
       "homepage": "https://www.qbittorrent.org/",
@@ -364,7 +364,7 @@
         },
         "port_forward": true,
         "hooks": {
-          "wrapper": ": \"${SILO_FORWARDED_PORT:?exclusive VPN incoming port is required}\"; exec \"$@\" --torrenting-port=\"$SILO_FORWARDED_PORT\"",
+          "wrapper": "exec /run/silo/torrent qbittorrent \"$@\"",
           "before_start": [],
           "timeout_seconds": 30
         }
@@ -416,7 +416,7 @@
     {
       "id": "transmission-qt",
       "name": "Transmission Qt",
-      "description": "Compact Qt torrent client with a private configuration.",
+      "description": "Transmission Qt with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
       "category": "Downloads",
       "license": "GPL-2.0-or-later",
       "homepage": "https://transmissionbt.com/",
@@ -463,16 +463,21 @@
           "categories": [
             "Network"
           ]
+        },
+        "port_forward": true,
+        "hooks": {
+          "wrapper": "exec /run/silo/torrent transmission-qt \"$@\"",
+          "before_start": [],
+          "timeout_seconds": 30
         }
       },
       "options": [
         {
           "key": "network",
           "label": "Network access",
-          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "description": "A forwarding-capable VPN is required; launch fails if no exclusive incoming port is available.",
           "choices": [
-            "vpn",
-            "blocked"
+            "vpn"
           ],
           "default": "vpn"
         },
@@ -511,7 +516,7 @@
     {
       "id": "transmission-cli",
       "name": "Transmission CLI",
-      "description": "Command-line torrent client with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
+      "description": "Transmission CLI with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
       "category": "Downloads",
       "license": "GPL-2.0-or-later",
       "homepage": "https://transmissionbt.com/",
@@ -558,7 +563,7 @@
         },
         "port_forward": true,
         "hooks": {
-          "wrapper": ": \"${SILO_FORWARDED_PORT:?exclusive VPN incoming port is required}\"; program=\"${1%/*}/transmission-cli\"; shift; exec \"$program\" -M -p \"$SILO_FORWARDED_PORT\" \"$@\"",
+          "wrapper": "exec /run/silo/torrent transmission-cli \"$@\"",
           "before_start": [],
           "timeout_seconds": 30
         }
@@ -610,7 +615,7 @@
     {
       "id": "aria2",
       "name": "aria2",
-      "description": "Command-line HTTP, FTP and torrent downloads.",
+      "description": "aria2 with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
       "category": "Downloads",
       "license": "GPL-2.0-or-later",
       "homepage": "https://aria2.github.io/",
@@ -654,16 +659,21 @@
           "categories": [
             "Network"
           ]
+        },
+        "port_forward": true,
+        "hooks": {
+          "wrapper": "exec /run/silo/torrent aria2 \"$@\"",
+          "before_start": [],
+          "timeout_seconds": 30
         }
       },
       "options": [
         {
           "key": "network",
           "label": "Network access",
-          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "description": "A forwarding-capable VPN is required; launch fails if no exclusive incoming port is available.",
           "choices": [
-            "vpn",
-            "blocked"
+            "vpn"
           ],
           "default": "vpn"
         },
@@ -704,7 +714,7 @@
     {
       "id": "rtorrent",
       "name": "rTorrent",
-      "description": "Terminal torrent client with persistent session data.",
+      "description": "rTorrent with required VPN isolation and an exclusive provider-forwarded TCP/UDP port.",
       "category": "Downloads",
       "license": "GPL-2.0-or-later",
       "homepage": "https://github.com/rakshasa/rtorrent",
@@ -748,16 +758,21 @@
           "categories": [
             "Network"
           ]
+        },
+        "port_forward": true,
+        "hooks": {
+          "wrapper": "exec /run/silo/torrent rtorrent \"$@\"",
+          "before_start": [],
+          "timeout_seconds": 30
         }
       },
       "options": [
         {
           "key": "network",
           "label": "Network access",
-          "description": "VPN is the default for online apps. Direct access bypasses the VPN. Blocked prevents application network access.",
+          "description": "A forwarding-capable VPN is required; launch fails if no exclusive incoming port is available.",
           "choices": [
-            "vpn",
-            "blocked"
+            "vpn"
           ],
           "default": "vpn"
         },
@@ -1201,7 +1216,7 @@
     {
       "id": "yt-dlp",
       "name": "yt-dlp",
-      "description": "Command-line media downloader; review each service\u2019s terms.",
+      "description": "Command-line media downloader; review each service’s terms.",
       "category": "Media",
       "license": "Unlicense",
       "homepage": "https://github.com/yt-dlp/yt-dlp",

@@ -177,5 +177,41 @@
       "passed": true,
       "scope": "packaged executable inside configured jail; GUI startup or CLI output"
     }
-  ]
+  ],
+  "follow_up": {
+    "date": "2026-10-16",
+    "applications": [
+      {
+        "error": null,
+        "id": "qbittorrent",
+        "passed": true,
+        "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+      },
+      {
+        "error": null,
+        "id": "transmission-qt",
+        "passed": true,
+        "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+      },
+      {
+        "error": null,
+        "id": "transmission-cli",
+        "passed": true,
+        "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+      },
+      {
+        "error": null,
+        "id": "aria2",
+        "passed": true,
+        "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+      },
+      {
+        "error": null,
+        "id": "rtorrent",
+        "passed": true,
+        "scope": "packaged executable inside configured jail; GUI startup or CLI output"
+      }
+    ],
+    "live_transfer_report": "torrent-verification.json"
+  }
 }

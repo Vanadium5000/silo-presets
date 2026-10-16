@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-16",
+  "environment": "Disposable NixOS QEMU/KVM Wayland guests; actual catalogue executables and hooks; live Netherlands VPN with exclusive forwarded ports",
+  "fixture": {
+    "name": "debian-13.7.0-amd64-netinst.iso",
+    "bytes": 792723456,
+    "sha256": "a7ef94ac2fb9a7fec454552abd629b7cc9d5155c886165a45649f5ce6167e355",
+    "http_seeds": false
+  },
+  "method": "Peer-only full downloads, SHA256 verification, incoming established connections on the leased port, independent public TCP handshake. rTorrent additionally checked its forwarded UDP listener with conflicting saved port/DHT preferences. Each launch has a 1.25 GiB combined traffic budget.",
+  "applications": [
+    {
+      "id": "qbittorrent",
+      "checksum_verified": true,
+      "fresh_download_observation_seconds": 57.780742313,
+      "peak_interface_mbps": 298.3358636766281,
+      "fresh_download_inbound_connections": 15,
+      "forwarding_recheck": {
+        "resumed_completed_download": true,
+        "inbound_tcp_connections": 1,
+        "independent_tcp_probe": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "transmission-qt",
+      "checksum_verified": true,
+      "fresh_download_observation_seconds": 172.681272526,
+      "peak_interface_mbps": 164.32129019340897,
+      "fresh_download_inbound_connections": 5,
+      "forwarding_recheck": {
+        "resumed_completed_download": true,
+        "inbound_tcp_connections": 3,
+        "independent_tcp_probe": true,
+        "passed": true
+      }
+    },
+    {
+      "id": "transmission-cli",
+      "checksum_verified": true,
+      "fresh_download_observation_seconds": 128.707052129,
+      "peak_interface_mbps": 166.1776107010943,
+      "fresh_download_inbound_connections": 3,
+      "forwarding_recheck": {
+        "resumed_completed_download": true,
+        "inbound_tcp_connections": 1,
+        "independent_tcp_probe": true,
+        "passed": true
+      }
+    },
+    {
+      "checksum_verified": true,
+      "id": "aria2",
+      "inbound_tcp_connections": 12,
+      "independent_tcp_probe": true,
+      "passed": true,
+      "peak_interface_mbps": 239.6341850536475,
+      "seconds": 55.621501417
+    },
+    {
+      "checksum_verified": true,
+      "forwarded_udp_listener": true,
+      "id": "rtorrent",
+      "inbound_tcp_connections": 68,
+      "independent_tcp_probe": true,
+      "passed": true,
+      "peak_interface_mbps": 195.06365803152408,
+      "seconds": 59.05277986
+    }
+  ],
+  "comparison": {
+    "parallel_direct_https_mbps": 173.15,
+    "separate_netherlands_vpn_https_mbps": 121.64,
+    "note": "Different endpoints and times; short interface peaks include protocol traffic. Observation times include startup, polling and verification. These measurements do not establish sustained line-rate performance or a permanent maximum."
+  },
+  "limitations": [
+    "The first three clients used separate fresh-download and resumed forwarding checks; their original independent probe ran too early.",
+    "Initial retained fixtures exhausted the default disposable application quota; failure disks were preserved and testing continued on a clone with a 5 GiB application budget.",
+    "Earlier rTorrent checks missed dual-stack TCP sockets; final validation checks TCP and TCP6.",
+    "No physical-GPU validation or guarantee against future provider, tracker, swarm or network changes."
+  ]
+}

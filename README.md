@@ -4,11 +4,14 @@ Reviewable application definitions for Silo. This catalogue is external data, no
 
 ## Status
 
-These entries are candidates undergoing runtime acceptance. A schema pass or package build is not a runtime pass. VPN port-forwarding integration and representative interaction tests are required before the torrent entries are considered ready.
+All 29 entries have recorded startup checks. All five torrent entries additionally
+have live VPN transfer and inbound-port evidence in [torrent-verification.json](torrent-verification.json).
+This establishes the tested versions and conditions, not every application feature
+or future provider/network behavior.
 
 ## Review and install
 
-Add this Git repository through Silo’s source settings, refresh it, then browse the app catalogue. Review the exact revision, permissions, package reference, options, and effective configuration before accepting installation. Source refresh does not update installed applications.
+Add this Git repository through Silo’s source settings, then browse the app catalogue. Current Silo versions populate uncached libraries automatically; use Refresh to check for later revisions. Review the exact revision, permissions, package reference, options, and effective configuration before accepting installation. Source refresh does not update installed applications.
 
 The command-line equivalents are `silo source add`, `silo source refresh`, `silo preset search`, `silo preset show`, `silo preset review`, and `silo preset install`. Run each command with `--help` for its arguments. Source URLs belong in private runtime configuration.
 
@@ -37,5 +40,24 @@ when source compilation is not acceptable.
 disposable guest. GUI captures were inspected, including document/image fixtures
 and the torrent client main window. These checks use a local VPN fixture; they
 do not certify live-provider transfers or physical-GPU behavior. Kate stays in
-the foreground for supervision. The incoming-port wrappers for qBittorrent and
-Transmission CLI consume the exclusive port supplied by Silo.
+the foreground for supervision. All five incoming-port wrappers consume the exclusive port supplied by Silo;
+the separate live-transfer report records their subsequent checks.
+
+## Forwarded torrent applications
+
+All five torrent entries require VPN port forwarding and use the in-jail
+`/run/silo/torrent` adapter from Silo. Install a Silo version providing this adapter
+before updating these definitions; older versions fail closed at startup.
+The reviewed wrappers pass arguments without shell interpolation. Each launch
+validates and applies the exclusive provider port. Transmission Qt preserves its
+4.1 JSON preferences; qBittorrent preserves its INI preferences. Both disable
+UPnP/NAT-PMP. aria2 and rTorrent also use the forwarded UDP port for DHT.
+rTorrent loads existing preferences before enforcing the leased port and keeps a private session directory for DHT state.
+The adapter does not grant networking or weaken jail limits.
+
+Stop a torrent app before claiming its tunnel's port for another app. An expired
+lease or replaced tunnel requires restarting the app. Changing the listening
+port in the application can break inbound connectivity until the next launch.
+Full transfer, incoming-peer and throughput measurements are recorded separately
+in [torrent-verification.json](torrent-verification.json), including resumed-check
+distinctions and network comparison limits.
