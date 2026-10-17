@@ -1,0 +1,18 @@
+{
+  "backend": "1.37.4",
+  "webvault": "2026.7.0+0",
+  "api_config": true,
+  "web_index_bytes": 23139,
+  "alive": true,
+  "fixture_only": true,
+  "account_roundtrip_tested": false,
+  "production_migrated": false,
+  "automatic_local_backup": true,
+  "schedule_seconds": 21600,
+  "retention_days": 30,
+  "stop_consumers": true,
+  "restore_reverted_data_marker": true,
+  "api_after_restore": true,
+  "backup_integrity": true,
+  "scope": "Disposable Silo guest; no production data or endpoint changes"
+}

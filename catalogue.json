@@ -2895,7 +2895,7 @@
         "name": "vaultwarden",
         "command": {
           "kind": "nix",
-          "installable": "github:NixOS/nixpkgs/c0a89c379b4ac67c7b13b051ddbd4e0dbc9b0eaf#vaultwarden",
+          "installable": "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#vaultwarden",
           "args": []
         },
         "service": {

@@ -136,3 +136,33 @@ A tested single-job runner definition and its isolation smoke workflow are in
 [ci/](ci/README.md). Catalogue validation also passed using the exact commit and a scoped job token.
 Runner allocation, cache verification inside CI and GUI testing are not yet
 automated; the verification record distinguishes this coverage.
+
+## Vaultwarden web assets and backups
+
+The backend is pinned to Vaultwarden 1.37.4. The matching nixpkgs revision
+provides `vaultwarden.webvault` (2026.7.0+0) separately; the backend closure does
+not contain the browser application. The catalogue keeps browser serving off
+until these public assets have been provisioned.
+
+Fetch both packages from substitutes on the deployment machine:
+
+```console
+nix build --no-link --max-jobs 0 --builders '' github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#vaultwarden github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#vaultwarden.webvault
+```
+
+Provision the web package's `share/vaultwarden/vault` directory on persistent
+storage. A reviewed read-only bind into `/workspace/web-vault` is supported;
+raw bind sources must live beneath a mounted `/mnt` or `/media` directory.
+Set `WEB_VAULT_ENABLED=true` and `WEB_VAULT_FOLDER=/workspace/web-vault` in the
+jail only after that bind is present. Keep signups disabled. Set the actual
+HTTPS `DOMAIN` before browser use, with its matching private DNS and trusted
+certificate. Web assets are public; account databases, attachments, signing
+keys and runtime configuration are private and must stay in persistent state.
+
+Back up `jail-vaultwarden` with Backkeep using `stop_consumers=true`, a
+21600-second schedule, 30-day retention and automatic cleanup. Wait for ongoing
+repository cleanup before restoring; a busy repository intentionally rejects
+concurrent operations. The disposable fixture verified automatic encrypted
+backup, repository integrity, data-marker restoration and the API after service
+restart. See `vaultwarden-verification.json`: this does **not** yet verify an
+account/vault round trip, browser HTTPS, production migration or a real-VPS reboot.
