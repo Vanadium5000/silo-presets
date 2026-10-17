@@ -4,7 +4,7 @@ Reviewable application definitions for Silo. This catalogue is external data, no
 
 ## Status
 
-All 29 entries have recorded startup checks. All five torrent entries additionally
+The original 29 entries have recorded startup checks. Forgejo has separate API, Git and backup/restore checks in [forgejo-verification.json](forgejo-verification.json); production HTTPS and Actions validation remain pending. All five torrent entries additionally
 have live VPN transfer and inbound-port evidence in [torrent-verification.json](torrent-verification.json).
 This establishes the tested versions and conditions, not every application feature
 or future provider/network behavior.
@@ -64,7 +64,7 @@ distinctions and network comparison limits.
 
 ## Hosting services
 
-The seven private hosting presets and their required Silo capabilities are
+The private hosting presets and their required Silo capabilities are
 explained in [HOSTING.md](HOSTING.md), including HTTPS routing, credential
 provisioning, monitoring and backup setup. Review this guide before publishing
 ports. Hosting verification is separate from the original desktop catalogue.

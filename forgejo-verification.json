@@ -1,0 +1,33 @@
+{
+  "version": "15.0.10",
+  "health": true,
+  "private_repository": true,
+  "non_admin_user": true,
+  "admin_api_denied": true,
+  "http_clone": true,
+  "http_push": true,
+  "commit": "08e59467079353fa923204f54d52f8190325438a",
+  "automatic_local_backup": true,
+  "schedule_seconds": 21600,
+  "retention_days": 30,
+  "stop_consumers": true,
+  "integrity": true,
+  "restore_reverted_later_git_commit": true,
+  "restored_api_database_and_git_agree": true,
+  "service_restart_after_backup_and_restore": true,
+  "wrong_backup_filesystem_rejected": true,
+  "environment": "Disposable NixOS guest; QEMU TCG; 2 GiB RAM",
+  "package": {
+    "packagePath": "/nix/store/4f20zmr1nmpma3jbkfcw77g0jhs6j593-forgejo-lts-15.0.10",
+    "version": "15.0.10",
+    "installable": "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#forgejo-lts"
+  },
+  "cache": "Complete installable closure verified in cache.nixos.org; substitution-only fetch succeeded",
+  "scope": "Application and backup acceptance, not production deployment certification",
+  "limitations": [
+    "Private HTTPS and WireGuard deployment not yet verified",
+    "Actions runners and workflow jobs not yet verified",
+    "Browser interface not visually reviewed",
+    "Production migration and provider reboot recovery not performed"
+  ]
+}

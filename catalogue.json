@@ -3298,6 +3298,86 @@
         "expected": "alertmanager, version",
         "timeout_seconds": 60
       }
+    },
+    {
+      "id": "forgejo",
+      "name": "Forgejo",
+      "description": "Private Git hosting and Actions coordinator. Create an administrator using the CLI, configure private HTTPS, and register a separately isolated repository runner.",
+      "category": "Hosting",
+      "license": "GPL-3.0-or-later",
+      "homepage": "https://forgejo.org/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "forgejo",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#forgejo-lts",
+          "args": [
+            "--work-path",
+            "/state/home",
+            "--custom-path",
+            "/state/home/custom",
+            "--config",
+            "/state/home/app.ini",
+            "web"
+          ]
+        },
+        "service": {
+          "autostart": true,
+          "ready": [
+            "/bin/sh",
+            "-c",
+            "exec 3<>/dev/tcp/127.0.0.1/8080; printf \"GET /api/healthz HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n\" >&3; IFS=\" \" read -r -t 3 protocol status rest <&3; test \"$status\" = 200"
+          ],
+          "ready_seconds": 90,
+          "health": {
+            "interval_seconds": 30,
+            "timeout_seconds": 5,
+            "failures": 3
+          }
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 8589934592,
+          "inodes": 262144
+        },
+        "limits": {
+          "memory": 1073741824,
+          "tmp": 268435456,
+          "processes": 256,
+          "cpu_percent": 200
+        },
+        "files": {
+          "app.ini": "APP_NAME = Private Forge\nRUN_USER = silo\nRUN_MODE = prod\nWORK_PATH = /state/home\n[server]\nPROTOCOL = http\nHTTP_ADDR = ::\nHTTP_PORT = 8080\nROOT_URL = http://forgejo:8080/\nAPP_DATA_PATH = /state/home/data\nDISABLE_SSH = true\nOFFLINE_MODE = true\n[database]\nDB_TYPE = sqlite3\nPATH = /state/home/data/forgejo.db\n[repository]\nROOT = /state/home/repositories\nDEFAULT_PRIVATE = private\n[security]\nINSTALL_LOCK = true\n[service]\nDISABLE_REGISTRATION = true\nREQUIRE_SIGNIN_VIEW = true\n[actions]\nENABLED = true\nDEFAULT_ACTIONS_URL = self\n[log]\nMODE = console\nLEVEL = Info\n"
+        },
+        "hooks": {
+          "before_start": [
+            "umask 077; mkdir -p /state/home/data /state/home/repositories /state/home/custom; if test ! -e /state/home/app.ini; then cp /app/app.ini /state/home/app.ini; fi; chmod 0600 /state/home/app.ini"
+          ],
+          "timeout_seconds": 30
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "--version"
+        ],
+        "expected": "Forgejo",
+        "timeout_seconds": 60
+      }
     }
   ]
 }
