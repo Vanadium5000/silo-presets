@@ -9,6 +9,7 @@ networking and application configuration before exposing a service.
 | Preset | Private endpoint | Persistent data | Additional setup |
 | --- | --- | --- | --- |
 | Vaultwarden | 8080 | `/state/home/data` | Native clients/API; web vault disabled, registration disabled. Configure the public HTTPS domain and reviewed account provisioning. |
+| Forgejo | 8080 | `/state/home` | Private HTTP Git and Actions coordinator; registration and SSH disabled. CLI administrator setup and private HTTPS required. |
 | Jellyfin | 8096 | `/state/home/{data,config,cache,log}` | Attach a media volume read-only; complete its setup wizard privately. GPU acceleration requires a separately reviewed device grant. |
 | Traefik | 8080 ping, 8443 TLS | `/state/home` | Configure routes, backend grants and certificate resolver; no dashboard exposed. |
 | nginx | 8080 health | `/state/home` | Configure routes and certificate volume/client; no default site content. |
@@ -86,3 +87,52 @@ upgrades that migrate data need a separate backup and maintenance procedure.
 Runtime verification is recorded separately. Readiness and restart checks are
 not certification of public ACME renewal, hardware transcoding or disaster
 recovery for every upstream application version.
+
+## Private Forgejo
+
+Forgejo also requires Silo's `env-shebang-v1` capability for generated Git hooks.
+Check `silo capabilities --json` before importing it; older hosts can pass an HTTP
+health check but fail repository creation and Git pushes without this support.
+
+The Forgejo preset grants no host ports, outbound network, runner execution, or
+host administration. Its runtime configuration is copied once into its persistent
+home and contains generated application secrets after first start. Later preset
+changes do not overwrite that file. Review and edit `/state/home/app.ini` during
+maintenance, setting `[server] ROOT_URL` to the chosen private HTTPS URL.
+Create the first administrator with Forgejo's CLI inside the jail; registration
+and the installation wizard are disabled. Keep administrator passwords out of
+shell history and process arguments by using the CLI's generated-password flow
+and immediately storing the result in your vault.
+
+Grant a private TLS proxy access to TCP 8080. Bind ingress only to the chosen
+WireGuard address and use a private CA trusted by enrolled desktops. Git over
+HTTPS needs no host SSH service. The preset does not install a CA or configure
+DNS; those are deployment-specific choices.
+
+Register a separate, repository-scoped Actions runner. Do not execute jobs in
+the forge's jail or give runners its database, signing secrets, administrator
+tokens, backup credentials, or the Silo administration socket. Use separate
+scoped deployment credentials only for jobs that need release access. Actions
+are resolved against this forge by default; import and pin any required actions
+before enabling workflows. Software-emulated GUI guests should have explicit
+memory, CPU and timeout limits on providers without nested KVM.
+
+Back up the entire persistent home with consumers stopped, including the SQLite
+database, repository files, generated secrets, LFS data and Actions artifacts.
+Test a restore into a separate private jail before upgrading. An application
+binary rollback alone cannot undo a database migration.
+
+Forgejo API/Git and automatic local backup/restore results are recorded in
+[forgejo-verification.json](forgejo-verification.json), including their limits.
+For same-server backups, use Backkeep's protected
+`/var/lib/backkeep/repositories/NAME` location with the actual persistent
+filesystem UUID. Set `schedule_seconds = 21600`, `retention_days = 30`,
+`auto_clean = true`, and `stop_consumers = true`. This requires the Backkeep
+release supporting server-local repositories; no removable drive is needed.
+Keep an independent backup copy when ready, because local backups share the
+server's disk and failure domain.
+
+A tested single-job runner definition and its isolation smoke workflow are in
+[ci/](ci/README.md). Catalogue validation also passed using the exact commit and a scoped job token.
+Runner allocation, cache verification inside CI and GUI testing are not yet
+automated; the verification record distinguishes this coverage.
