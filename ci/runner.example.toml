@@ -1,0 +1,55 @@
+# Replace the endpoint, UUID and service name after repository-scoped registration.
+# The credential value is provisioned separately at runtime, never in this file.
+version = 1
+name = "catalogue-ci"
+
+[command]
+kind = "nix"
+installable = "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#forgejo-runner"
+args = ["--config", "/app/runner.json", "one-job", "--wait"]
+
+[network]
+kind = "blocked"
+
+[[hosting.connect]]
+service = "forgejo"
+protocol = "tcp"
+port = 8080
+
+[storage]
+kind = "memory"
+bytes = 1073741824
+inodes = 65536
+
+[limits]
+memory = 1073741824
+processes = 256
+cpu_percent = 200
+tmp = 268435456
+
+[service]
+autostart = false
+restart = "no"
+
+[credentials]
+token = "catalogue-ci"
+
+[files]
+"runner.json" = '''
+{
+  "runner": {"capacity": 1, "timeout": "15m", "insecure": false},
+  "cache": {"enabled": false},
+  "container": {"privileged": false, "valid_volumes": [], "docker_host": "-"},
+  "host": {"workdir_parent": "/state/home/jobs"},
+  "server": {
+    "connections": {
+      "catalogue": {
+        "url": "http://forgejo:8080/",
+        "uuid": "REPLACE_WITH_REPOSITORY_RUNNER_UUID",
+        "token_url": "file:/run/credentials/token",
+        "labels": ["silo-test:host"]
+      }
+    }
+  }
+}
+'''

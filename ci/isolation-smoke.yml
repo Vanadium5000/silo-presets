@@ -1,0 +1,17 @@
+name: Runner isolation smoke test
+on: [push]
+jobs:
+  isolation:
+    runs-on: silo-test
+    steps:
+      - name: Check runner isolation
+        shell: /bin/sh
+        run: |
+          set -eu
+          test "$(id -u)" != 0
+          test ! -S /run/silo/control.sock
+          test ! -S /nix/var/nix/daemon-socket/socket
+          test ! -e /etc/secrets
+          test ! -e /dev/kvm
+          test -z "${SSH_AUTH_SOCK:-}"
+          printf 'Repository-scoped CI isolation checks passed\n'

@@ -26,8 +26,18 @@
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
     "Private HTTPS and WireGuard deployment not yet verified",
-    "Actions runners and workflow jobs not yet verified",
+    "Only a runner isolation smoke job verified; catalogue and GUI microVM workflows remain unverified",
     "Browser interface not visually reviewed",
     "Production migration and provider reboot recovery not performed"
-  ]
+  ],
+  "ephemeral_repository_scoped_ci": {
+    "runner_version": "13.2.0",
+    "mode": "one-job --wait",
+    "workflow_status": "success",
+    "registration_removed_after_job": true,
+    "non_root": true,
+    "host_control_and_nix_sockets_absent": true,
+    "host_secrets_and_kvm_absent": true,
+    "ssh_agent_absent": true
+  }
 }

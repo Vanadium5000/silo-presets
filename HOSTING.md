@@ -131,3 +131,7 @@ filesystem UUID. Set `schedule_seconds = 21600`, `retention_days = 30`,
 release supporting server-local repositories; no removable drive is needed.
 Keep an independent backup copy when ready, because local backups share the
 server's disk and failure domain.
+
+A tested single-job runner definition and its isolation smoke workflow are in
+[ci/](ci/README.md). Runner allocation and full catalogue/GUI testing are not yet
+automated; the verification record distinguishes this limited coverage.
