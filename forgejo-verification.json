@@ -26,7 +26,7 @@
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
     "Private HTTPS and WireGuard deployment not yet verified",
-    "Only a runner isolation smoke job verified; catalogue and GUI microVM workflows remain unverified",
+    "Isolation and catalogue validation jobs verified; GUI microVM jobs, artifacts and automatic allocation remain unverified",
     "Browser interface not visually reviewed",
     "Production migration and provider reboot recovery not performed"
   ],
@@ -38,6 +38,10 @@
     "non_root": true,
     "host_control_and_nix_sockets_absent": true,
     "host_secrets_and_kvm_absent": true,
-    "ssh_agent_absent": true
+    "ssh_agent_absent": true,
+    "restricted_non_admin_owner": true,
+    "exact_commit_fetch_with_job_token": true,
+    "catalogue_validation": "success",
+    "no_external_checkout_action": true
   }
 }

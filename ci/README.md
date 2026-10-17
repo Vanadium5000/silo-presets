@@ -13,7 +13,10 @@ scope it to exactly the repository it is allowed to test.
    `{"name":"catalogue-ci","ephemeral":true}`. Keep the API authentication
    outside the runner. Store the returned token as the root-owned, mode `0600`
    runtime file `/etc/secrets/silo/credentials/catalogue-ci`; never commit it or
-   put it in command arguments. Put only the returned UUID in the definition.
+   put it in command arguments. Put only the returned UUID in the definition. Set `CATALOGUE_SILO` to the
+   installed, immutable Silo executable path (resolve it on the server with
+   `readlink -f /run/current-system/sw/bin/silo`). The validator runs without a
+   control socket and does not execute catalogue code or fetch packages.
 2. Review the connection service and URL. The example uses the private Silo
    connection to `forgejo:8080`; off-host runners require verified HTTPS and
    explicit network policy. Keep Forgejo's advertised `ROOT_URL` reachable by
@@ -30,9 +33,13 @@ scope it to exactly the repository it is allowed to test.
 
 The tested execution mode is `one-job --wait`. The runner rejects ephemeral
 registrations in `daemon` mode. Memory-backed workspaces are discarded when the
-jail stops; export required reports before it exits. Automatic runner allocation,
-catalogue validation, GUI microVM jobs and artifact upload remain to be
-implemented and verified. Do not describe this smoke test as that coverage.
+jail stops; export required reports before it exits. The repository workflow in `.forgejo/workflows/validate.yml` fetches the exact
+triggering commit with its short-lived job token and runs the catalogue validator.
+It passed in a disposable guest with a restricted, non-admin repository owner.
+The token is passed through Git configuration environment variables, never stored
+in the repository URL or Git configuration. Automatic runner allocation, binary
+cache verification inside CI, GUI microVM jobs and artifact upload remain to be
+implemented and verified.
 
 See the [Forgejo registration documentation](https://forgejo.org/docs/latest/admin/actions/registration/)
 for repository scope and server-enforced ephemeral registration semantics.

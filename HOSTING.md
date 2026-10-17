@@ -133,5 +133,6 @@ Keep an independent backup copy when ready, because local backups share the
 server's disk and failure domain.
 
 A tested single-job runner definition and its isolation smoke workflow are in
-[ci/](ci/README.md). Runner allocation and full catalogue/GUI testing are not yet
-automated; the verification record distinguishes this limited coverage.
+[ci/](ci/README.md). Catalogue validation also passed using the exact commit and a scoped job token.
+Runner allocation, cache verification inside CI and GUI testing are not yet
+automated; the verification record distinguishes this coverage.

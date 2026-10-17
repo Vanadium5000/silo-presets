@@ -1,0 +1,29 @@
+name: Catalogue validation
+on: [push]
+jobs:
+  validate:
+    runs-on: silo-test
+    steps:
+      - name: Fetch exact revision and validate catalogue
+        shell: /bin/sh
+        env:
+          JOB_TOKEN: ${{ secrets.FORGEJO_TOKEN }}
+          FORGE_URL: ${{ forgejo.server_url }}
+          REPOSITORY: ${{ forgejo.repository }}
+          REVISION: ${{ forgejo.sha }}
+        run: |
+          set -eu
+          test "$(id -u)" != 0
+          test ! -S /run/silo/control.sock
+          test ! -S /nix/var/nix/daemon-socket/socket
+          test ! -e /etc/secrets
+          test ! -e /dev/kvm
+          export GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=http.extraHeader
+          GIT_CONFIG_VALUE_0="Authorization: Basic $(printf 'x-access-token:%s' "$JOB_TOKEN" | base64 -w0)"
+          export GIT_CONFIG_VALUE_0
+          git init checkout
+          git -C checkout remote add origin "$FORGE_URL/$REPOSITORY.git"
+          git -C checkout fetch --depth=1 origin "$REVISION"
+          git -C checkout checkout --detach FETCH_HEAD
+          unset GIT_CONFIG_COUNT GIT_CONFIG_KEY_0 GIT_CONFIG_VALUE_0 JOB_TOKEN
+          "$CATALOGUE_SILO" source validate checkout/catalogue.json
