@@ -5,7 +5,8 @@ Reviewable application definitions for Silo. This catalogue is external data, no
 ## Status
 
 The original 29 entries have recorded startup checks. Forgejo has separate API, Git and backup/restore checks in [forgejo-verification.json](forgejo-verification.json); private HTTPS and encrypted-reboot checks also passed on the fresh VPS deployment.
-Production GUI CI and authenticated artifact-browser download remain pending. All five torrent entries additionally
+Production GUI CI also passed on the VPS with software emulation; authenticated
+artifact-browser download remains pending. All five torrent entries additionally
 have live VPN transfer and inbound-port evidence in [torrent-verification.json](torrent-verification.json).
 This establishes the tested versions and conditions, not every application feature
 or future provider/network behavior.

@@ -26,7 +26,6 @@
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
     "Authenticated artifact browser download still pending",
-    "Production GUI CI cold-boot acceptance still pending",
     "Forge browser interface review still pending",
     "No migration of an existing production forge was attempted"
   ],
@@ -67,5 +66,14 @@
     "automatic_restart_after_luks_unlock": true,
     "git_head_preserved_after_reboot": true,
     "failed_system_units_after_reboot": 0
+  },
+  "production_gui_ci": {
+    "environment": "12 GiB VPS without nested KVM; QEMU TCG software emulation",
+    "run": 4,
+    "status": "success",
+    "runner": "repository-scoped single-use runner allocated by silo-ci timer",
+    "gui_guest": "2 GiB, 2 vCPU, software rendering; desktop session ready on first cold boot",
+    "fix": "graphical test guests order logind and greetd after udev coldplug",
+    "evidence": "catalogue-gui artifact uploaded through verified private HTTPS"
   }
 }
