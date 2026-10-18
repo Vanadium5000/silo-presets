@@ -151,10 +151,13 @@ nix build --no-link --max-jobs 0 --builders '' github:NixOS/nixpkgs/55bfb4d7437b
 ```
 
 Provision the web package's `share/vaultwarden/vault` directory on persistent
-storage. A reviewed read-only bind into `/workspace/web-vault` is supported;
-raw bind sources must live beneath a mounted `/mnt` or `/media` directory.
+storage using a managed Silo volume. Attach it read-only at
+`/workspace/web-vault`; this attachment survives host reboots without an
+external mount. Include the volume in the service backup job. A reviewed raw
+bind is also supported, but its source must live beneath a mounted `/mnt` or
+`/media` directory and that mount must be restored before service startup.
 Set `WEB_VAULT_ENABLED=true` and `WEB_VAULT_FOLDER=/workspace/web-vault` in the
-jail only after that bind is present. Keep signups disabled. Set the actual
+jail only after that volume is attached. Keep signups disabled. Set the actual
 HTTPS `DOMAIN` before browser use, with its matching private DNS and trusted
 certificate. Web assets are public; account databases, attachments, signing
 keys and runtime configuration are private and must stay in persistent state.

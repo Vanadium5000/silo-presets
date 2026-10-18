@@ -14,5 +14,8 @@
   "restore_reverted_data_marker": true,
   "api_after_restore": true,
   "backup_integrity": true,
-  "scope": "Disposable Silo guest; no production data or endpoint changes"
+  "scope": "Disposable Silo guest; no production data or endpoint changes",
+  "service_after_guest_reboot": true,
+  "backup_integrity_after_guest_reboot": true,
+  "web_assets_readonly_managed_volume": true
 }
