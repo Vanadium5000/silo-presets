@@ -167,8 +167,10 @@ Back up `jail-vaultwarden` with Backkeep using `stop_consumers=true`, a
 repository cleanup before restoring; a busy repository intentionally rejects
 concurrent operations. The disposable fixture verified automatic encrypted
 backup, repository integrity, data-marker restoration and the API after service
-restart. See `vaultwarden-verification.json`: this does **not** yet verify an
-account/vault round trip, browser HTTPS, production migration or a real-VPS reboot.
+restart. The fresh VPS deployment additionally verified private HTTPS in a browser, an
+account and encrypted-note round trip, fresh-browser decryption after restore,
+and automatic startup with unchanged database counts after an encrypted reboot.
+See `vaultwarden-verification.json`; migration of an existing vault was not tested.
 
 ## Private HTTPS with Caddy
 
@@ -205,3 +207,12 @@ the artifact uploader explicitly loads this CA while retaining certificate and
 hostname verification, independently of certificate variables set by Actions.
 Never disable certificate checks. The catalogue workflow also supports manual
 `workflow_dispatch` runs.
+
+## Service health checks
+
+Forgejo and Vaultwarden use their local HTTP health endpoints for readiness and
+periodic supervision. Caddy checks its local TCP listener. Three failed checks
+trigger the configured bounded restart policy. Caddy’s listener check does not
+verify certificate expiry or backend health: also test each HTTPS URL from an
+enrolled client with normal certificate and hostname verification. Review probe
+ports alongside any service port changes.

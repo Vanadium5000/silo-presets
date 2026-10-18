@@ -25,10 +25,10 @@
   "cache": "Complete installable closure verified in cache.nixos.org; substitution-only fetch succeeded",
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
-    "Private HTTPS and WireGuard deployment not yet verified",
-    "Artifact browser download and automatic runner allocation remain unverified",
-    "Browser interface not visually reviewed",
-    "Production migration and provider reboot recovery not performed"
+    "Authenticated artifact browser download still pending",
+    "Production GUI CI cold-boot acceptance still pending",
+    "Forge browser interface review still pending",
+    "No migration of an existing production forge was attempted"
   ],
   "ephemeral_repository_scoped_ci": {
     "runner_version": "13.2.0",
@@ -57,5 +57,15 @@
     "screenshot_visually_inspected": true,
     "zip_artifact_persisted": true,
     "environment": "Disposable NixOS guest; 6 GiB outer guest, 2 GiB software desktop guest"
+  },
+  "production_acceptance": {
+    "environment": "12 GiB VPS; WireGuard-only HTTPS",
+    "restricted_repository_owner": true,
+    "private_https_through_wireguard": true,
+    "restore_preserved_repository_head": true,
+    "restore_removed_later_issue": true,
+    "automatic_restart_after_luks_unlock": true,
+    "git_head_preserved_after_reboot": true,
+    "failed_system_units_after_reboot": 0
   }
 }

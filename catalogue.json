@@ -2899,7 +2899,18 @@
           "args": []
         },
         "service": {
-          "autostart": true
+          "autostart": true,
+          "ready": [
+            "/bin/sh",
+            "-c",
+            "exec 3<>/dev/tcp/127.0.0.1/8080; printf \"GET /alive HTTP/1.0\\r\\nHost: localhost\\r\\n\\r\\n\" >&3; IFS=\" \" read -r -t 3 protocol status rest <&3; test \"$status\" = 200"
+          ],
+          "ready_seconds": 90,
+          "health": {
+            "interval_seconds": 30,
+            "timeout_seconds": 5,
+            "failures": 3
+          }
         },
         "network": {
           "kind": "blocked"
@@ -3411,7 +3422,18 @@
           ]
         },
         "service": {
-          "autostart": true
+          "autostart": true,
+          "ready": [
+            "/bin/sh",
+            "-c",
+            "exec 3<>/dev/tcp/127.0.0.1/8443"
+          ],
+          "ready_seconds": 90,
+          "health": {
+            "interval_seconds": 30,
+            "timeout_seconds": 5,
+            "failures": 3
+          }
         },
         "network": {
           "kind": "blocked"

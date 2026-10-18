@@ -4,8 +4,8 @@
   "api_config": true,
   "web_index_bytes": 23139,
   "alive": true,
-  "fixture_only": true,
-  "account_roundtrip_tested": false,
+  "fixture_only": false,
+  "account_roundtrip_tested": true,
   "production_migrated": false,
   "automatic_local_backup": true,
   "schedule_seconds": 21600,
@@ -14,8 +14,21 @@
   "restore_reverted_data_marker": true,
   "api_after_restore": true,
   "backup_integrity": true,
-  "scope": "Disposable Silo guest; no production data or endpoint changes",
+  "scope": "Disposable guest acceptance and a fresh private VPS deployment; no migration of an existing vault",
   "service_after_guest_reboot": true,
   "backup_integrity_after_guest_reboot": true,
-  "web_assets_readonly_managed_volume": true
+  "web_assets_readonly_managed_volume": true,
+  "production_acceptance": {
+    "environment": "12 GiB VPS; WireGuard-only HTTPS",
+    "verified_hostname_and_ca": true,
+    "fresh_browser_login": true,
+    "encrypted_note_create_decrypt": true,
+    "fresh_browser_decrypt_after_restore": true,
+    "registration_closed_after_operator_enrollment": true,
+    "sqlite_integrity_after_reboot": "ok",
+    "automatic_restart_after_luks_unlock": true,
+    "database_record_counts_preserved": true,
+    "local_encrypted_backup_and_restore": true,
+    "external_existing_vault_migration": false
+  }
 }
