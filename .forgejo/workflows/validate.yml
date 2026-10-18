@@ -29,3 +29,13 @@ jobs:
           "$CATALOGUE_SILO" source validate checkout/catalogue.json > catalogue-result.json
           cat catalogue-result.json
           "$CI_PYTHON" checkout/ci/upload-artifact.py catalogue-evidence catalogue-result.json
+      - name: Exercise application in a software VM
+        if: ${{ vars.GUI_TESTS == 'true' }}
+        shell: /bin/sh -e {0}
+        run: |
+          "$CI_PYTHON" checkout/ci/gui-smoke.py
+      - name: Upload GUI evidence, including failures
+        if: ${{ always() && vars.GUI_TESTS == 'true' }}
+        shell: /bin/sh -e {0}
+        run: |
+          "$CI_PYTHON" checkout/ci/upload-artifact.py gui-evidence gui-evidence.zip

@@ -37,9 +37,8 @@ jail stops; export required reports before it exits. The repository workflow in 
 triggering commit with its short-lived job token and runs the catalogue validator.
 It passed in a disposable guest with a restricted, non-admin repository owner.
 The token is passed through Git configuration environment variables, never stored
-in the repository URL or Git configuration. Automatic runner allocation, binary
-cache verification inside CI, GUI microVM jobs and artifact upload remain to be
-implemented and verified.
+in the repository URL or Git configuration. Automatic runner allocation and binary cache verification inside CI remain
+to be implemented and verified.
 
 See the [Forgejo registration documentation](https://forgejo.org/docs/latest/admin/actions/registration/)
 for repository scope and server-enforced ephemeral registration semantics.
@@ -52,5 +51,27 @@ Set `CI_PYTHON` to a reviewed Python 3 store executable alongside `CATALOGUE_SIL
 The small `upload-artifact.py` client uses Forgejo's job-scoped runtime token and
 30-day retention; it refuses redirects and cross-origin upload endpoints. It
 needs no external action download. Each evidence file is limited to 64 MiB.
-Artifact upload and persistence were verified in the disposable forge; GUI
-screenshots and browser download still need their separate acceptance checks.
+Artifact upload and persistence were verified in the disposable forge, including
+a GUI screenshot ZIP. Authenticated browser download remains to be checked.
+
+## GUI acceptance
+
+Set the repository Actions variable `GUI_TESTS` to `true` after provisioning
+`CI_VM_HELPER`, `CI_VM_RUNNER` and `CI_APP_EXECUTABLE` as reviewed immutable
+paths in the runner environment. The administrator must retain their closures;
+the job cannot build packages or create host GC roots. The executable must match
+the catalogue application pin (`CI_APP_ID` defaults to `featherpad`). Grant the
+`software-virtual-machines` preset, a read-only store, and enough workspace and
+memory for the desktop guest. VM presets require a 65536 open-file limit for
+virtiofsd; the Silo runtime sets this limit.
+
+`gui-smoke.py` boots the supplied desktop runner with software emulation, applies
+the catalogue sandbox grants, opens a test document, verifies the mapped process
+belongs to that sandbox, and captures a screenshot. It always collects failure
+logs and stops the VM. The workflow uploads evidence even when the GUI check
+fails. No KVM device or host management socket is passed to the job.
+
+This path passed in a disposable forge with a 6 GiB outer guest and a 2 GiB
+software desktop guest. The captured FeatherPad window and expected document
+were visually inspected. This establishes the fixture workflow; deployment on
+the VPS and authenticated browser artifact download remain separate checks.

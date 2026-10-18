@@ -26,7 +26,7 @@
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
     "Private HTTPS and WireGuard deployment not yet verified",
-    "GUI microVM jobs, artifact browser download and automatic runner allocation remain unverified",
+    "Artifact browser download and automatic runner allocation remain unverified",
     "Browser interface not visually reviewed",
     "Production migration and provider reboot recovery not performed"
   ],
@@ -48,5 +48,14 @@
     "verified_commit": "9027e4a70ece72e0ef576c88a337f71b91d68ca5",
     "artifact_upload_verified": true,
     "artifact_record_count": 1
+  },
+  "gui_microvm_ci": {
+    "job_id": 15,
+    "software_emulation": true,
+    "catalogue_sandbox_grants": true,
+    "mapped_process_cgroup_verified": true,
+    "screenshot_visually_inspected": true,
+    "zip_artifact_persisted": true,
+    "environment": "Disposable NixOS guest; 6 GiB outer guest, 2 GiB software desktop guest"
   }
 }
