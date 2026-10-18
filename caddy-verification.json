@@ -1,0 +1,17 @@
+{
+  "preset": "caddy",
+  "package": "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#caddy",
+  "version": "2.11.7",
+  "environment": "Disposable NixOS VM, isolated Silo services",
+  "checks": {
+    "private_ca_https": true,
+    "ca_persists_restart": true,
+    "private_dns_alias_proxy_to_forgejo": true,
+    "untrusted_ca_rejected": true,
+    "public_port_published": false
+  },
+  "not_verified": [
+    "production renewal",
+    "disaster recovery"
+  ]
+}

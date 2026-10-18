@@ -169,3 +169,31 @@ concurrent operations. The disposable fixture verified automatic encrypted
 backup, repository integrity, data-marker restoration and the API after service
 restart. See `vaultwarden-verification.json`: this does **not** yet verify an
 account/vault round trip, browser HTTPS, production migration or a real-VPS reboot.
+
+## Private HTTPS with Caddy
+
+The Caddy preset starts with an unpublished HTTPS listener on port 8443 and a
+persistent internal certificate authority. Replace `localhost` in its Caddyfile
+with the chosen private DNS names, and replace the example response with
+`reverse_proxy SERVICE:PORT`. Stop the proxy and linked services before changing
+connection grants. Add only the required backend `hosting.connect` entries.
+Publish the proxy on the WireGuard address, restricted to enrolled peer subnets;
+leave the public interface closed.
+
+Export only `/state/home/caddy/pki/authorities/local/root.crt` to enrolled
+clients after verifying it through the authenticated management connection.
+Trust that public certificate in their system trust stores. Keep the authority's
+private keys inside the proxy's persistent home and include that home in the
+encrypted backup schedule. The `skip_install_trust` option means the proxy never
+attempts to modify a client's trust store. DNS names and certificates must match.
+
+For an isolated CI runner, connect it to the proxy's actual TCP port 8443 and
+add the chosen full Git hostname to that connection's `aliases` list. Supply
+the public CA to Git and HTTPS clients inside the runner. Use the same HTTPS URL,
+including the port, for Forgejo's `ROOT_URL` and runner registration. These aliases
+apply only to the explicitly connected jail and add no network permissions.
+
+A disposable fixture verified the pinned Caddy package, certificate identity
+across a restart, a client-to-proxy-to-Forgejo HTTPS request with a private DNS
+alias, and rejection without the trusted CA. Production certificate renewal and
+disaster recovery still require deployment checks.

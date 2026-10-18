@@ -3378,6 +3378,68 @@
         "expected": "Forgejo",
         "timeout_seconds": 60
       }
+    },
+    {
+      "id": "caddy",
+      "name": "Caddy",
+      "description": "Private HTTPS reverse proxy with automatic internal certificates. Review names, service links, tunnel ingress and CA trust before publishing.",
+      "category": "Hosting",
+      "license": "Apache-2.0",
+      "homepage": "https://caddyserver.com/",
+      "icon": "network-server",
+      "tags": [
+        "hosting",
+        "service",
+        "private-default",
+        "https"
+      ],
+      "systems": [
+        "x86_64-linux"
+      ],
+      "jail": {
+        "version": 1,
+        "name": "caddy",
+        "command": {
+          "kind": "nix",
+          "installable": "github:NixOS/nixpkgs/55bfb4d7437bd4e09ab7cba58a43bd68eb310044#caddy",
+          "args": [
+            "run",
+            "--config",
+            "/app/Caddyfile",
+            "--adapter",
+            "caddyfile"
+          ]
+        },
+        "service": {
+          "autostart": true
+        },
+        "network": {
+          "kind": "blocked"
+        },
+        "storage": {
+          "kind": "persistent",
+          "bytes": 1073741824,
+          "inodes": 65536
+        },
+        "limits": {
+          "memory": 268435456,
+          "tmp": 67108864,
+          "processes": 128,
+          "cpu_percent": 100
+        },
+        "files": {
+          "Caddyfile": "{\n admin off\n skip_install_trust\n auto_https disable_redirects\n https_port 8443\n storage file_system /state/home/caddy\n}\nhttps://localhost:8443 {\n tls internal\n respond \"Private HTTPS proxy: configure names and service links before publishing.\"\n}\n"
+        }
+      },
+      "options": [],
+      "test": {
+        "kind": "output",
+        "args": [
+          "version"
+        ],
+        "expected": "v2.",
+        "timeout_seconds": 60
+      }
     }
   ]
 }
