@@ -45,7 +45,9 @@ def main():
         boot = vm("run", "--runner", runner, "--software", "--memory", "2048", "--cores", "2",
                   "--no-presets", "--detach", timeout=960)
         (evidence / "boot.log").write_bytes(boot)
-        deadline = time.monotonic() + 180
+        # Keep the disposable user's runtime logs after a compositor crash.
+        guest("loginctl", "enable-linger", "main")
+        deadline = time.monotonic() + 300
         while True:
             try:
                 sockets = guest("find", "/run/user/1000", "-maxdepth", "1", "-type", "s", "-name", "wayland-*").decode().splitlines()
@@ -115,6 +117,13 @@ def main():
                 (evidence / name).write_bytes(guest(*command))
             except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
                 pass
+        try:
+            logs = guest("find", "/run/user/1000", "-type", "f", "(", "-name", "*.log", "-o", "-name", "hyprlandCrashReport*.txt", ")").decode().splitlines()
+            for index, source in enumerate(logs[:16]):
+                if source.startswith("/run/user/1000/"):
+                    vm("download", "--", source, str(evidence / (str(index) + "-" + pathlib.Path(source).name)))
+        except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            pass
         vm_state = pathlib.Path(env.get("XDG_STATE_HOME", str(pathlib.Path.home() / ".local/state"))) / "nixos-config/microvm" / host / state
         for name in ("supervisor.log", "microvm-run.log", "virtiofsd-run.log"):
             source = vm_state / name
