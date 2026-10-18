@@ -12,6 +12,7 @@ import json
 import os
 import pathlib
 import re
+import ssl
 import urllib.parse
 import urllib.request
 
@@ -37,7 +38,8 @@ def main():
     if origin.scheme not in ("http", "https") or not origin.hostname or origin.username:
         raise RuntimeError("invalid runtime endpoint")
     api = urllib.parse.urljoin(base, f"_apis/pipelines/workflows/{run}/artifacts")
-    opener = urllib.request.build_opener(NoRedirect())
+    context = ssl.create_default_context(cafile=os.environ.get("CI_CA_FILE"))
+    opener = urllib.request.build_opener(NoRedirect(), urllib.request.HTTPSHandler(context=context))
 
     def request(method, url, body, headers=None):
         destination = urllib.parse.urlsplit(url)

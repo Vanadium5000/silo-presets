@@ -197,3 +197,11 @@ A disposable fixture verified the pinned Caddy package, certificate identity
 across a restart, a client-to-proxy-to-Forgejo HTTPS request with a private DNS
 alias, and rejection without the trusted CA. Production certificate renewal and
 disaster recovery still require deployment checks.
+
+For a private HTTPS CA, include its public certificate in the runner’s reviewed
+read-only files. Set `SSL_CERT_FILE`, `NIX_SSL_CERT_FILE` and `GIT_SSL_CAINFO`
+to that file in the runner environment. Set `CI_CA_FILE` in `runner.envs` too;
+the artifact uploader explicitly loads this CA while retaining certificate and
+hostname verification, independently of certificate variables set by Actions.
+Never disable certificate checks. The catalogue workflow also supports manual
+`workflow_dispatch` runs.
