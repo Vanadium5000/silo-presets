@@ -43,3 +43,14 @@ implemented and verified.
 
 See the [Forgejo registration documentation](https://forgejo.org/docs/latest/admin/actions/registration/)
 for repository scope and server-enforced ephemeral registration semantics.
+
+The shell template must include `{0}`: use `shell: /bin/sh -e {0}`. Without
+that placeholder the shell receives no script and can incorrectly report success.
+Verify the exact commit, expected check output and artifact record for each run.
+
+Set `CI_PYTHON` to a reviewed Python 3 store executable alongside `CATALOGUE_SILO`.
+The small `upload-artifact.py` client uses Forgejo's job-scoped runtime token and
+30-day retention; it refuses redirects and cross-origin upload endpoints. It
+needs no external action download. Each evidence file is limited to 64 MiB.
+Artifact upload and persistence were verified in the disposable forge; GUI
+screenshots and browser download still need their separate acceptance checks.

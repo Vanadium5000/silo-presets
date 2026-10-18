@@ -5,7 +5,7 @@ jobs:
     runs-on: silo-test
     steps:
       - name: Check runner isolation
-        shell: /bin/sh
+        shell: /bin/sh -e {0}
         run: |
           set -eu
           test "$(id -u)" != 0

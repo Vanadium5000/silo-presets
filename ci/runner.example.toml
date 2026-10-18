@@ -38,7 +38,8 @@ token = "catalogue-ci"
 "runner.json" = '''
 {
   "runner": {"capacity": 1, "timeout": "15m", "insecure": false,
-    "envs": {"CATALOGUE_SILO": "REPLACE_WITH_INSTALLED_SILO_EXECUTABLE"}},
+    "envs": {"CATALOGUE_SILO": "REPLACE_WITH_INSTALLED_SILO_EXECUTABLE",
+             "CI_PYTHON": "REPLACE_WITH_PINNED_PYTHON3_EXECUTABLE"}},
   "cache": {"enabled": false},
   "container": {"privileged": false, "valid_volumes": [], "docker_host": "-"},
   "host": {"workdir_parent": "/state/home/jobs"},

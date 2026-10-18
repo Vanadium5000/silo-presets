@@ -26,7 +26,7 @@
   "scope": "Application and backup acceptance, not production deployment certification",
   "limitations": [
     "Private HTTPS and WireGuard deployment not yet verified",
-    "Isolation and catalogue validation jobs verified; GUI microVM jobs, artifacts and automatic allocation remain unverified",
+    "GUI microVM jobs, artifact browser download and automatic runner allocation remain unverified",
     "Browser interface not visually reviewed",
     "Production migration and provider reboot recovery not performed"
   ],
@@ -42,6 +42,11 @@
     "restricted_non_admin_owner": true,
     "exact_commit_fetch_with_job_token": true,
     "catalogue_validation": "success",
-    "no_external_checkout_action": true
+    "no_external_checkout_action": true,
+    "executed_script_verified_in_logs": true,
+    "verified_run_id": 4,
+    "verified_commit": "9027e4a70ece72e0ef576c88a337f71b91d68ca5",
+    "artifact_upload_verified": true,
+    "artifact_record_count": 1
   }
 }

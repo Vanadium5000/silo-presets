@@ -5,7 +5,7 @@ jobs:
     runs-on: silo-test
     steps:
       - name: Fetch exact revision and validate catalogue
-        shell: /bin/sh
+        shell: /bin/sh -e {0}
         env:
           JOB_TOKEN: ${{ secrets.FORGEJO_TOKEN }}
           FORGE_URL: ${{ forgejo.server_url }}
@@ -26,4 +26,6 @@ jobs:
           git -C checkout fetch --depth=1 origin "$REVISION"
           git -C checkout checkout --detach FETCH_HEAD
           unset GIT_CONFIG_COUNT GIT_CONFIG_KEY_0 GIT_CONFIG_VALUE_0 JOB_TOKEN
-          "$CATALOGUE_SILO" source validate checkout/catalogue.json
+          "$CATALOGUE_SILO" source validate checkout/catalogue.json > catalogue-result.json
+          cat catalogue-result.json
+          "$CI_PYTHON" checkout/ci/upload-artifact.py catalogue-evidence catalogue-result.json
